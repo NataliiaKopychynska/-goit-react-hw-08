@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshUserThunk } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
+import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 // import Layout from "./components/Layout/Layout";
 
@@ -27,6 +28,14 @@ function App() {
       <Toaster />
       <Suspense>
         <Routes>
+          {/* <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Layout />
+              </PrivateRoute>
+            }
+          > */}
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="*" element={<NotFound />} />
@@ -39,8 +48,22 @@ function App() {
               }
             />
           </Route>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute>
+                <LoginPage />
+              </RestrictedRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute>
+                <RegistrationPage />
+              </RestrictedRoute>
+            }
+          />
         </Routes>
       </Suspense>
     </>

@@ -1,9 +1,10 @@
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import s from "./RegistrationForm.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../redux/auth/operations";
+import logo from "../../img/logoBoook.png";
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -33,6 +34,10 @@ function RegistrationForm() {
   };
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
+      <NavLink className={s.imgContainer} to="/">
+        <img className={s.imgLogo} src={logo} alt="Logo" />
+        Home
+      </NavLink>
       <Formik
         initialValues={initialValue}
         onSubmit={handleSubmit}
