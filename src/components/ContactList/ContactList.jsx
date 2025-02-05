@@ -1,7 +1,7 @@
-import s from "./ContactList.module.css";
-import Contact from "../Contact/Contact.jsx";
 import { useSelector } from "react-redux";
-import { selectFilteredContacts } from "../../redux/contactsSice.js";
+import { selectFilteredContacts } from "../../redux/contacts/contactsSice.js";
+import Contact from "../Contact/Contact.jsx";
+import s from "./ContactList.module.css";
 // import { deleteContact } from "../../redux/contactsSice.js";
 
 export default function ContactList() {

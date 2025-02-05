@@ -36,7 +36,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 1.2;
   border: 1px solid rgb(120, 89, 192);
   background-color: rgb(223, 209, 255);
   &:hover {
@@ -49,9 +51,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
-  border: 1px solid rgb(169, 63, 63);
-  background-color: rgb(247, 153, 153);
+  height: 24px;
+  font-size: 14px;
+  line-height: 1.2;
+  border: 1px solid rgb(189, 89, 89);
+  background-color: rgb(250, 177, 177);
   color: rgb(85, 22, 22);
   &:hover {
     background-color: rgb(192, 89, 89);

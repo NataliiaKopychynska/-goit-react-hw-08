@@ -1,35 +1,27 @@
+import { lazy } from "react";
 import "./App.css";
-import ContactList from "./components/ContactList/ContactList";
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchContactThunk } from "./redux/contactsOps";
-import { selectIsError, selectIsLoading } from "./redux/contactsSice";
+
+import { Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage";
+// import Layout from "./components/Layout/Layout";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage"));
+const Layout = lazy(() => import("./components/Layout/Layout"));
 
 function App() {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const isError = useSelector(selectIsError);
-
-  useEffect(() => {
-    dispatch(fetchContactThunk());
-  }, [dispatch]);
-
   return (
-    <div>
-      <h1>Phonebook</h1>
-
-      <div className="contain-date">
-        <div>
-          <SearchBox />
-          <ContactForm />
-        </div>
-        <ContactList />
-      </div>
-      {isError && <h2>Try again latter...</h2>}
-      {isLoading && <h2>Loading...</h2>}
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="contacts" element={<ContactsPage />} />
+      </Route>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegistrationPage />} />
+    </Routes>
   );
 }
 

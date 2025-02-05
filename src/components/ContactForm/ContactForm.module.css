@@ -1,7 +1,8 @@
 .form {
+  box-sizing: content-box;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 372px;
   height: fit-content;
   /* justify-content: space-between; */
   /* align-items: center; */
@@ -31,16 +32,23 @@
 }
 
 .btn {
-  height: 40px;
+  /* width: 398px;  */
+
+  height: 36px;
   border: 1px solid rgb(120, 89, 192);
   background-color: rgb(223, 209, 255);
   margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.2;
+
   &:hover {
     background-color: rgb(120, 89, 192);
     color: rgb(223, 209, 255);
   }
 }
 .containerInput {
+  /* box-sizing: border-box; */
+
   margin-bottom: 16px;
   text-align: start;
 }

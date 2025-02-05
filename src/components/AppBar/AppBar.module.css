@@ -1,0 +1,31 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(170, 137, 247);
+  box-shadow: 0 2px 8px 0 rgba(151, 71, 255, 0.49);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 24px;
+}
+
+.navDiv {
+  display: flex;
+  gap: 24px;
+}
+
+.navLink {
+  color: rgb(241, 236, 255);
+  font-size: 18px;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    color: rgb(224, 216, 247);
+    position: relative;
+    transform: scale(1.05);
+  }
+}
