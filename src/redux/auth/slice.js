@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginThunk, logoutThunk, registerThunk } from "./operations";
+import {
+  loginThunk,
+  logoutThunk,
+  refreshUserThunk,
+  registerThunk,
+} from "./operations";
 
 //11111nkopichinckaya@gmail.com
 const initialState = {
   user: JSON.parse(localStorage.getItem("user")) || { name: "", email: "" },
   token: localStorage.getItem("token") || "",
   isLogin: Boolean(localStorage.getItem("token")),
+  isRefreshing: false,
 };
 
 // const initialState = {
@@ -48,6 +54,22 @@ const slice = createSlice({
         state.user = { name: "", email: "" };
         state.isLogin = false; // ВАЖЛИВО: робимо isLogin false
         state.token = "";
+      })
+      .addCase(refreshUserThunk.fulfilled, (state, action) => {
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.isLogin = true;
+        state.isRefreshing = false;
+        // state.token = action.payload.token;
+        //
+        localStorage.setItem("user", JSON.stringify(action.payload.user));
+        localStorage.setItem("token", action.payload.token);
+      })
+      .addCase(refreshUserThunk.pending, (state) => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUserThunk.rejected, (state) => {
+        state.isRefreshing = true;
       });
   },
 });

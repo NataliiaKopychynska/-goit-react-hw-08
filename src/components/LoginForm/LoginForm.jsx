@@ -1,9 +1,10 @@
 import { Field, Formik, Form } from "formik";
 
 import s from "./LoginForm.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/auth/operations";
+import logo from "../../img/logoBoook.png";
 
 function LoginForm() {
   const initialValue = {
@@ -23,6 +24,10 @@ function LoginForm() {
   };
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
+      <NavLink className={s.imgContainer} to="/">
+        <img className={s.imgLogo} src={logo} alt="Logo" />
+        Home
+      </NavLink>
       <Formik initialValues={initialValue} onSubmit={handleSubmit}>
         <Form className={s.container}>
           <h1 className={s.tittle}>Login</h1>

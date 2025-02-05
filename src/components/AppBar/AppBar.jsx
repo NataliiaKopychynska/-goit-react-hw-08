@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 
 import css from "./AppBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsLogin, selectUser } from "../../redux/auth/selectors";
+import { selectIsLogin } from "../../redux/auth/selectors";
 import { logoutThunk } from "../../redux/auth/operations";
 
 function AppBar() {
   const isLogin = useSelector(selectIsLogin);
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
@@ -27,9 +27,16 @@ function AppBar() {
             // <NavLink className={css.navLink} to="login">
             //   Logout
             // </NavLink>
-            <a className={css.navLink} onClick={() => dispatch(logoutThunk())}>
+            // <a className={css.navLink} onClick={() => dispatch(logoutThunk())}>
+            //   Logout
+            // </a>
+            <NavLink
+              className={css.navLink}
+              onClick={() => dispatch(logoutThunk())}
+              to="login"
+            >
               Logout
-            </a>
+            </NavLink>
           ) : (
             <div className={css.navDiv}>
               <NavLink className={css.navLink} to="login">
