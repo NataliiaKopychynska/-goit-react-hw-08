@@ -27,7 +27,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  padding-top: 100px;
+
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
@@ -69,30 +69,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.ContactsBTN {
-  /* display: flex; */
-  /* justify-content: baseline; */
-  /* align-items: center; */
-  border-radius: 12px;
-  padding: 12px 16px;
-  background-color: rgb(152, 116, 236);
-  box-shadow: 4px 4px 8px 0 rgba(151, 71, 255, 0.381);
-  color: rgb(230, 223, 249);
-
-  font-size: 16px;
-  line-height: 0.9;
-  height: 40px;
-
-  &:hover {
-    background-color: rgb(124, 95, 192);
-    color: rgb(230, 223, 249);
-  }
-}
-
-.containerPBTN {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
 }

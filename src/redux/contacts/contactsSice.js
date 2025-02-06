@@ -17,14 +17,6 @@ export const contactsSlice = createSlice({
   name: "contacts",
   initialState,
   reducers: {
-    // addContact: (state, action) => {
-    //   state.contacts.push(action.payload);
-    // },
-    // deleteContact: (state, action) => {
-    //   state.contacts = state.contacts.filter(
-    //     (contact) => contact.id !== action.payload
-    //   );
-    // },
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
@@ -35,7 +27,7 @@ export const contactsSlice = createSlice({
       state.contacts = action.payload;
     },
     setFilter: (state, action) => {
-      state.filter = action.payload; // 🔹 Оновлюємо фільтр
+      state.filter = action.payload;
     },
   },
 

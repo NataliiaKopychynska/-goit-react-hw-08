@@ -1,22 +1,10 @@
-// import axios from "axios";
-// import { fetchDataSuccess, setError, setLoading } from "./contactsSice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { goItApi } from "./auth/operations";
-
-//
-// const setAuthHeader = () => {
-//   const token = localStorage.getItem("token");
-//   if (token) {
-//     goItApi.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-//   }
-// };
 
 export const fetchContactThunk = createAsyncThunk(
   "contacts/fetchData",
   async (_, thunkAPI) => {
     try {
-      //
-      // setAuthHeader();
       const { data } = await goItApi.get("contacts");
       return data;
     } catch (e) {
@@ -30,8 +18,6 @@ export const deleteContactsThunk = createAsyncThunk(
   "contacts/deleteContact",
   async (id, thunkAPI) => {
     try {
-      //
-      // setAuthHeader();
       const { data } = await goItApi.delete(`contacts/${id}`);
       return data;
     } catch (e) {
@@ -44,8 +30,6 @@ export const addContactThunk = createAsyncThunk(
   "contacts/addContact",
   async (body, thunkAPI) => {
     try {
-      //
-      // setAuthHeader();
       const { data } = await goItApi.post("contacts", body);
       return data;
     } catch (e) {
@@ -60,8 +44,6 @@ export const editContactThunk = createAsyncThunk(
     try {
       console.log(body);
 
-      //
-      // setAuthHeader();
       const { data } = await goItApi.patch(`contacts/${body.id}`, {
         name: body.name,
         number: body.number,
