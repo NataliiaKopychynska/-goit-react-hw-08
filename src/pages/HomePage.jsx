@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import logo from "../img/logoBoook.png";
+import { selectIsLogin } from "../redux/auth/selectors";
+import { useSelector } from "react-redux";
 function HomePage() {
+  const isLoggedIn = useSelector(selectIsLogin);
   return (
     <div className="containerHome">
       <h1>
@@ -14,9 +17,15 @@ function HomePage() {
           anywhere. Say goodbye to lost numbers and scattered lists – keep
           everything in one secure and convenient place.
         </p>
-        <NavLink className="ContactsBTN" to="/contacts">
-          Contacts
-        </NavLink>
+        {isLoggedIn ? (
+          <NavLink className="ContactsBTN" to="/contacts">
+            Contacts
+          </NavLink>
+        ) : (
+          <NavLink className="ContactsBTN" to="/register">
+            Register
+          </NavLink>
+        )}
       </div>
     </div>
   );

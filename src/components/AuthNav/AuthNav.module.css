@@ -1,0 +1,17 @@
+.authNav {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  margin-top: 4px;
+  color: rgb(241, 236, 255);
+  font-size: 18px;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    color: rgb(224, 216, 247);
+    position: relative;
+    transform: scale(1.05);
+  }
+}
