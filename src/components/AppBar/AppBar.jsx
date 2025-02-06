@@ -14,13 +14,15 @@ const AppBar = () => {
         <NavLink className={css.navLink} to="/">
           Home
         </NavLink>
-        {isLoggedIn && (
-          <NavLink className={css.navLink} to="/contacts">
-            Contacts
-          </NavLink>
-        )}
+        <div className={css.conteinerLogRegister}>
+          <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>
+          {/* {isLoggedIn && (
+            <NavLink className={css.navLink} to="/contacts">
+              Contacts
+            </NavLink>
+          )} */}
+        </div>
       </nav>
-      <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>
     </header>
   );
 };

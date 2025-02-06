@@ -28,14 +28,6 @@ function App() {
       <Toaster />
       <Suspense>
         <Routes>
-          {/* <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                <Layout />
-              </PrivateRoute>
-            }
-          > */}
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="*" element={<NotFound />} />

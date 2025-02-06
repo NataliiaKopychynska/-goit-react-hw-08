@@ -1,0 +1,25 @@
+.navDiv {
+  display: flex;
+  gap: 24px;
+}
+
+.navLink {
+  margin-top: 4px;
+  color: rgb(241, 236, 255);
+  font-size: 18px;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    color: rgb(224, 216, 247);
+    position: relative;
+    transform: scale(1.05);
+  }
+}
+
+.userName {
+  border-bottom: 1px solid rgb(224, 216, 247);
+  border-top: 1px solid rgb(224, 216, 247);
+  border-radius: 18px;
+  padding: 6px;
+  /* margin-right: 24px; */
+}

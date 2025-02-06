@@ -19,6 +19,7 @@
 }
 
 .navLink {
+  margin-top: 4px;
   color: rgb(241, 236, 255);
   font-size: 18px;
   transition: transform 0.2s ease-in-out;
@@ -28,4 +29,9 @@
     position: relative;
     transform: scale(1.05);
   }
+}
+
+.conteinerLogRegister {
+  display: flex;
+  gap: 24px;
 }
