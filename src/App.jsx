@@ -21,7 +21,7 @@ function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
   useEffect(() => {
-    dispatch(refreshUserThunk);
+    dispatch(refreshUserThunk());
   }, [dispatch]);
   return isRefreshing ? null : (
     <>
