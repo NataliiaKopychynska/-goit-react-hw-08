@@ -2,8 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-// axios.defaults.baseURL = "https://connections-api.goit.global/";
-
 export const goItApi = axios.create({
   baseURL: "https://connections-api.goit.global/",
 });
@@ -12,12 +10,17 @@ export const setAuthHeader = (token) => {
   goItApi.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+export const clearAuthHeader = () => {
+  goItApi.defaults.headers.common.Authorization = "";
+};
+
 export const registerThunk = createAsyncThunk(
   "auth/register",
   async (credentials, thunkApi) => {
     try {
       const { data } = await goItApi.post("users/signup", credentials);
       setAuthHeader(data.token);
+
       return data;
     } catch (e) {
       const errorCode = e.response?.data?.code;
@@ -48,7 +51,7 @@ export const logoutThunk = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const { data } = await goItApi.post("users/logout");
-
+      clearAuthHeader();
       return data;
     } catch (e) {
       return thunkApi.rejectWithValue(e.message);

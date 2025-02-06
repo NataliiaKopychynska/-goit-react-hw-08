@@ -1,17 +1,15 @@
 // import axios from "axios";
 // import { fetchDataSuccess, setError, setLoading } from "./contactsSice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { goItApi } from "./auth/operations";
-
-// axios.defaults.baseURL = "https://connections-api.goit.global";
+import { goItApi, setAuthHeader } from "./auth/operations";
 
 //
-const setAuthHeader = () => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    goItApi.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-  }
-};
+// const setAuthHeader = () => {
+//   const token = localStorage.getItem("token");
+//   if (token) {
+//     goItApi.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+//   }
+// };
 
 export const fetchContactThunk = createAsyncThunk(
   "contacts/fetchData",
